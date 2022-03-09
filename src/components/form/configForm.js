@@ -7,7 +7,7 @@ export const config = (fullName, email, cel, age) => {
                 message: '* El nombre es requerido'
             },
             pattern: {
-                value: "^[a-zA-Z0-9]+$",
+                value: "^[ñíóáéú a-zA-Z ]+$",
                 message: "* El nombre no puede contener caracteres especiales",
             },
         },
