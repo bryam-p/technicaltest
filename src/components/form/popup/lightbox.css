@@ -1,0 +1,52 @@
+.wrapper__lightbox {
+    background: #00000067;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrapper__lightbox .content__lightbox {
+    max-width: 400px;
+    height: 200px;
+    width: 100%;
+    background: #ededed;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+}
+
+.wrapper__lightbox .content__lightbox .wrap__text {
+    width: 80%;
+    text-align: center;
+}
+
+
+.wrapper__lightbox .content__lightbox .btn-send {
+    border: none;
+    padding: 5px 20px;
+    background-color: #72d072;
+    color: #165f16;
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 1rem;
+    border-radius: 0.3rem;
+    cursor: pointer;
+}
+
+.wrapper__lightbox .content__lightbox .btn-send:hover {
+    max-width: 100%;
+    background-color: #90ce90;
+    transition: 0.2s ease-in all;
+    color: #317c31;
+}
+
+.closePopup {
+    display: none;
+}
