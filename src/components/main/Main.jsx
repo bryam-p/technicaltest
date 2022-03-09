@@ -6,7 +6,7 @@ import './main.css'
 
 const Main = () => {
 
-    const [context, setContext] = useState("Sin selección");
+    const [context, setContext] = useState("");
 
     return (
         <Context.Provider value={[setContext]} >
@@ -16,8 +16,7 @@ const Main = () => {
                     <small>Por favor, selecciona una de las opciones del menú</small>
                     <div>Hola, bienvenido, sabemos que quieres <br></br>  viajar en un avión de: <strong>{context}</strong> </div>
                 </div>
-                <div className="welcome__title contact__title">Contáctanos</div>
-                <Form />
+                <Form context={context} />
             </div>
         </Context.Provider >
     )

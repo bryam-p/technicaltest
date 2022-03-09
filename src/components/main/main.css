@@ -5,20 +5,9 @@
     margin: 3rem auto;
 }
 
-.wrapperForm .contact__title {
-    font-size: 30px;
-    font-weight: bold;
-    margin-bottom: 0;
-}
-
-
 @media screen and (max-width: 920px) {
     .wrapperForm .welcome__title {
         font-size: 15px;
         margin: 2rem auto;
-    }
-
-    .wrapperForm .contact__title {
-        font-size: 20px;
     }
 }

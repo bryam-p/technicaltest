@@ -5,7 +5,7 @@ import { config } from './configForm'
 import './form.css'
 import Lightbox from './popup/Lightbox'
 
-const Form = memo(function Form() {
+const Form = memo(function Form({ context }) {
 
     const initialState = {
         fullName: '',
@@ -42,7 +42,7 @@ const Form = memo(function Form() {
 
     useEffect(() => {
         if (praparedData && Object.entries(menssageErrors).length === 0) {
-            console.log('Datos enviados', fullName, email, cel, age)
+            console.log(`Datos enviados \nNombre: ${fullName} \nEmail: ${email} \nCelular: ${cel} \nEdad: ${age} \nAvión: ${context}`)
             setPreparedData(false)
             setPopup(true)
             reset()
@@ -58,39 +58,41 @@ const Form = memo(function Form() {
     }, [popup])
 
     return (
-        <form onSubmit={handleSubmit} className="formData" noValidate>
-            <div className="wrapper__input">
-                <label htmlFor="fullName">Nombre completo</label>
-                <input type="text" name="fullName" id="fullName" placeholder="Ejemplo: Joe Dae" onChange={handleInputChange} autoComplete="off" />
-                <small className={menssageErrors?.fullName ? 'errorsActive' : 'errors__input'}>{menssageErrors?.fullName}</small>
-            </div>
 
-            <div className="wrapper__input">
-                <label htmlFor="age">Email</label>
-                <input type="email" name="email" placeholder="Ejemplo: joedae@gmail.com" id="email" onChange={handleInputChange} autoComplete="off" />
-                <small className={menssageErrors?.email ? 'errorsActive' : 'errors__input'}>{menssageErrors?.email}</small>
-            </div>
-
-            <div className="wrapper__input">
-                <label htmlFor="cel">Celular</label>
-                <input type="text" name="cel" placeholder="Ejemplo: 3163203774" id="cel" onChange={handleInputChange} autoComplete="off" />
-                <small className={menssageErrors?.cel ? 'errorsActive' : 'errors__input'}>{menssageErrors?.cel}</small>
-            </div>
-
-            <div className="wrapper__input wrapper__age">
-                <label htmlFor="age">Edad</label>
-                <div className="container__age">
-                    <input type="range" name="age" id="age" min="18" max="100" step="1" onChange={handleInputChange} autoComplete="off" />
-                    <small>{age ? age : 0} Años</small>
+        context !== '' ?
+            <form onSubmit={handleSubmit} className="formData" noValidate>
+                <div className="wrapper__input">
+                    <label htmlFor="fullName">Nombre completo</label>
+                    <input type="text" name="fullName" id="fullName" placeholder="Ejemplo: Joe Dae" onChange={handleInputChange} autoComplete="off" />
+                    <small className={menssageErrors?.fullName ? 'errorsActive' : 'errors__input'}>{menssageErrors?.fullName}</small>
                 </div>
-            </div>
-            <small className={menssageErrors?.age ? 'errorsActive' : 'errors__input'}>{menssageErrors?.age}</small>
 
-            <button type="submit" className="btn-submit">Enviar</button>
+                <div className="wrapper__input">
+                    <label htmlFor="age">Email</label>
+                    <input type="email" name="email" placeholder="Ejemplo: joedae@gmail.com" id="email" onChange={handleInputChange} autoComplete="off" />
+                    <small className={menssageErrors?.email ? 'errorsActive' : 'errors__input'}>{menssageErrors?.email}</small>
+                </div>
 
-            <Lightbox open={popup} />
+                <div className="wrapper__input">
+                    <label htmlFor="cel">Celular</label>
+                    <input type="text" name="cel" placeholder="Ejemplo: 3163203774" id="cel" onChange={handleInputChange} autoComplete="off" />
+                    <small className={menssageErrors?.cel ? 'errorsActive' : 'errors__input'}>{menssageErrors?.cel}</small>
+                </div>
 
-        </form>
+                <div className="wrapper__input wrapper__age">
+                    <label htmlFor="age">Edad</label>
+                    <div className="container__age">
+                        <input type="range" name="age" id="age" min="18" max="100" step="1" onChange={handleInputChange} autoComplete="off" />
+                        <small>{age ? age : 0} Años</small>
+                    </div>
+                </div>
+                <small className={menssageErrors?.age ? 'errorsActive' : 'errors__input'}>{menssageErrors?.age}</small>
+
+                <button type="submit" className="btn-submit">Enviar</button>
+
+                <Lightbox open={popup} />
+            </form> : null
+
     )
 })
 
