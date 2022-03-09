@@ -11,6 +11,26 @@ body {
   margin: 0 auto;
 }
 
+body::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+body::-webkit-scrollbar:vertical {
+  width: 5px;
+  background-color: #f1f1f1;
+}
+
+body::-webkit-scrollbar-button:increment,
+.contenedor::-webkit-scrollbar-button {
+  display: none;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #262626;
+  border-radius: 20px;
+  border: 1px solid #262626;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

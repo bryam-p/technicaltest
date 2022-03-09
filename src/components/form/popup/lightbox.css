@@ -3,10 +3,11 @@
     position: absolute;
     top: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
 }
 
 .wrapper__lightbox .content__lightbox {
@@ -25,6 +26,8 @@
 .wrapper__lightbox .content__lightbox .wrap__text {
     width: 80%;
     text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 
 
@@ -49,4 +52,14 @@
 
 .closePopup {
     display: none;
+}
+
+.block-overflow {
+    overflow: hidden;
+}
+
+@media screen and (max-width: 920px) {
+    .wrapper__lightbox .content__lightbox {
+        max-width: 85%;
+    }
 }

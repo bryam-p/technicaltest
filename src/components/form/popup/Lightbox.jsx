@@ -1,19 +1,26 @@
-import { useState } from 'react';
+import { useEffect } from 'react';
 import { Portal } from 'react-portal'
 import './lightbox.css'
 
-const Lightbox = ({ open }) => {
-
-    const [closePopup, setClosePopup] = useState(false)
+const Lightbox = ({ open, setPopup }) => {
 
     const handleClose = () => {
-        setClosePopup(true)
+        setPopup(false)
     }
+
+    useEffect(() => {
+        if (open) {
+            document.body.classList.add('block-overflow');
+        } else {
+            document.body.classList.remove('block-overflow');
+        }
+    }, [open])
+
 
     return (
         open &&
         <Portal>
-            <div className={`wrapper__lightbox ${closePopup && 'closePopup'}`}  >
+            <div className='wrapper__lightbox'   >
                 <div className="content__lightbox">
                     <div className="wrap__text">
                         <span>

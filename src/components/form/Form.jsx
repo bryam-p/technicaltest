@@ -90,7 +90,7 @@ const Form = memo(function Form({ context }) {
 
                 <button type="submit" className="btn-submit">Enviar</button>
 
-                <Lightbox open={popup} />
+                <Lightbox open={popup} setPopup={setPopup} />
             </form> : null
 
     )
